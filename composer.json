@@ -1,0 +1,17 @@
+{
+    "name": "jamiehoward/ups-estimator-php",
+    "description": "SDK for interacting with the UPS Estimator site",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Jamiehoward\\UpsEstimatorPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jamie Howard",
+            "email": "jamie@useslingshot.com"
+        }
+    ],
+    "require": {}
+}
