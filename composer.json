@@ -13,5 +13,7 @@
             "email": "jamie@useslingshot.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "^5.7 || ^9.0"
+    }
 }
