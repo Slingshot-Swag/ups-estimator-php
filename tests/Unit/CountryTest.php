@@ -3,13 +3,13 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use Jamiehoward\UpsEstimatorPhp\Country;
+use Jamiehoward\UpsEstimator\Models\Country;
 
 final class CountryTest extends TestCase
 {
     public function test_class_exists()
     {
-        $this->assertTrue(class_exists('\Jamiehoward\UpsEstimatorPhp\Country'));
+        $this->assertTrue(class_exists('\Jamiehoward\UpsEstimator\Models\Country'));
     }
 
     public function test_can_set_and_retrieve_country_code()

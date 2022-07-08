@@ -4,7 +4,12 @@
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Jamiehoward\\UpsEstimatorPhp\\": "src/"
+            "Jamiehoward\\UpsEstimator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
         }
     },
     "authors": [

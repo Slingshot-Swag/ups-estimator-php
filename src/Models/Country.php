@@ -1,6 +1,6 @@
 <?php
 
-namespace Jamiehoward\UpsEstimatorPhp;
+namespace Jamiehoward\UpsEstimator\Models;
 
 class Country
 {
@@ -16,7 +16,7 @@ class Country
     /**
      * @param string $countryCode   The alpha2 country code, e.g. 'US'
      * 
-     * @return Jamiehoward\UpsEstimatorPhp\Country
+     * @return Jamiehoward\UpsEstimator\Models\Country
      */
     public function setCountryCode(string $countryCode)
     {
@@ -36,7 +36,7 @@ class Country
     /**
      * @param array $states   An array of state codes, e.g. ['CA', 'US']
      * 
-     * @return Jamiehoward\UpsEstimatorPhp\Country
+     * @return Jamiehoward\UpsEstimator\Models\Country
      */
     public function setStates($states = [])
     {
@@ -56,7 +56,7 @@ class Country
     /**
      * @param array $fieldLabels   An array of field labels, e.g. ['city' => 'Locality', 'state' => 'Province', 'postalCode' => 'Postal Code']
      * 
-     * @return Jamiehoward\UpsEstimatorPhp\Country
+     * @return Jamiehoward\UpsEstimator\Country
      */
     public function setFieldLabels($fieldLabels = [])
     {
