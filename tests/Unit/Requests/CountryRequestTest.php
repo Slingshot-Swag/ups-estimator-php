@@ -2,9 +2,9 @@
 
 namespace Tests\Unit\Requests;
 
-use Jamiehoward\UpsEstimator\Drivers\CurlDriver;
 use Tests\TestCase;
 use Jamiehoward\UpsEstimator\Requests\CountryRequest;
+use Jamiehoward\UpsEstimator\Providers\UPSServiceProvider;
 
 final class CountryRequestTest extends TestCase
 {
@@ -13,22 +13,20 @@ final class CountryRequestTest extends TestCase
         $this->assertTrue(class_exists('\Jamiehoward\UpsEstimator\Requests\CountryRequest'));
     }
 
-    public function test_driver_can_be_set_and_retrieved()
+    public function test_can_set_and_retrieve_provider()
     {
-        $driver = new CurlDriver;
-
+        $provider = new UPSServiceProvider;
         $countryRequest = new CountryRequest;
-
-        $countryRequest->setDriver($driver);
-        $this->assertSame($driver, $countryRequest->getDriver());
+        $countryRequest->setProvider($provider);
+        $this->assertSame($provider, $countryRequest->getProvider());
     }
 
-    public function test_driver_must_be_instance_of_driver()
+    public function test_provider_must_be_instance_UPSServiceProvider()
     {
         $this->expectException(\TypeError::class);
 
         $countryRequest = new CountryRequest;
-        $countryRequest->setDriver(new \stdClass);
+        $countryRequest->setProvider(new \stdClass);
     }
 
     public function test_can_set_and_retrieve_locale()
@@ -42,5 +40,18 @@ final class CountryRequestTest extends TestCase
     {
         $countryRequest = new CountryRequest;
         $this->assertEquals('en_US', $countryRequest->getLocale());
+    }
+
+    public function test_can_set_and_retrieve_country_code()
+    {
+        $countryRequest = new CountryRequest;
+        $countryRequest->setCountryCode('US');
+        $this->assertEquals('US', $countryRequest->getCountryCode());
+    }
+
+    public function test_can_set_country_code_upon_instantiation()
+    {
+        $countryRequest = new CountryRequest('US');
+        $this->assertEquals('US', $countryRequest->getCountryCode());
     }
 }

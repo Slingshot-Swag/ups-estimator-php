@@ -2,36 +2,43 @@
 
 namespace Jamiehoward\UpsEstimator\Requests;
 
-use Jamiehoward\UpsEstimator\Drivers\Driver;
+use Jamiehoward\UpsEstimator\Providers\UPSServiceProvider;
 
 class CountryRequest
 {
-    protected $driver;
     protected $locale;
+    protected $provider;
+    protected $countryCode;
 
     const DEFAULT_LOCALE = 'en_US';
 
+    public function __construct($countryCode = null)
+    {
+        $this->locale = self::DEFAULT_LOCALE;
+        $this->countryCode = $countryCode;
+    }
+
     /**
-     * Set the driver to use for the HTTP request.
+     * Set the provider to use for the request.
      * 
-     * @param Driver $driver The driver to use for the request.
+     * @param UPSServiceProvider $provider The provider to use for the request.
      * @return CountryRequest
      */
-    public function setDriver(Driver $driver)
+    public function setProvider(UPSServiceProvider $provider)
     {
-        $this->driver = $driver;
+        $this->provider = $provider;
 
         return $this;
     }
 
     /**
-     * Retrieve the driver used for the HTTP request.
+     * Retrieve the provider used for the request.
      * 
-     * @return Driver The driver used for the request.
+     * @return UPSServiceProvider The provider used for the request.
      */
-    public function getDriver()
+    public function getProvider()
     {
-        return $this->driver;
+        return $this->provider;
     }
 
     /**
@@ -54,10 +61,29 @@ class CountryRequest
      */
     public function getLocale()
     {
-        if (empty($this->locale)) {
-            $this->setLocale(self::DEFAULT_LOCALE);
-        }
-
         return $this->locale;
+    }
+
+    /**
+     * Set the country code to use for the request.
+     * 
+     * @param string $countryCode The country code to use for the request.
+     * @return CountryRequest
+     */
+    public function setCountryCode($countryCode)
+    {
+        $this->countryCode = $countryCode;
+
+        return $this;
+    }
+
+    /**
+     * Retrieve the country code used for the request.
+     * 
+     * @return string The country code used for the request.
+     */
+    public function getCountryCode()
+    {
+        return $this->countryCode;
     }
 }
