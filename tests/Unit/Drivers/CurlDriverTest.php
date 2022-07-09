@@ -48,4 +48,20 @@ final class CurlDriverTest extends TestCase
             $this->assertTrue(method_exists(CurlDriver::class, $method));
         }
     }
+
+    public function test_valid_methods_are_allowed()
+    {
+        $curlDriver = new CurlDriver;
+        $curlDriver->setMethod('POST');
+
+        $this->assertEquals('POST', $curlDriver->getMethod());
+    }
+    
+    public function test_invalid_methods_throw_exception()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        $curlDriver = new CurlDriver;
+        $curlDriver->setMethod('testing');
+    }
 }

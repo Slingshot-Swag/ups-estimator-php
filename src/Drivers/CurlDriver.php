@@ -47,6 +47,10 @@ class CurlDriver implements Driver
     
     public function setMethod($method)
     {
+        if (!in_array($method, ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'])) {
+            throw new \InvalidArgumentException("Invalid request method.", 1);
+        }
+
         $this->method = $method;
         
         return $this;

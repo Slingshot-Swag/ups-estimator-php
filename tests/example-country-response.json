@@ -5,6 +5,6 @@
     "addressLayout": "{\"stateRequired\":false,\"cityRequired\":true,\"postalCodeRequired\":true,\"stateVisible\":true,\"cityVisible\":true,\"postalCodeVisible\":true,\"layoutComponent\":\"[{\\\"name\\\":\\\"City\\\",\\\"ordinal\\\":2},{\\\"name\\\":\\\"Postal\\\",\\\"ordinal\\\":12},{\\\"name\\\":\\\"State\\\",\\\"ordinal\\\":14}]\"}",
     "stateList": "[{\"key\":\"ACT\",\"value\":\"Australian Cap. Ter.\"},{\"key\":\"NSW\",\"value\":\"New South Wales\"},{\"key\":\"NT\",\"value\":\"Northern Territory\"},{\"key\":\"QLD\",\"value\":\"Queensland\"},{\"key\":\"SA\",\"value\":\"South Australia\"},{\"key\":\"TAS\",\"value\":\"Tasmania\"},{\"key\":\"VIC\",\"value\":\"Victoria\"},{\"key\":\"WA\",\"value\":\"Western Australia\"}]",
     "prefix": "a1",
-    "appId": "NO\u0026#32;CLIENT\u0026#32;ID\u0026#32;RECEIVED",
+    "appId": "testing",
     "currencyCode": "AUD"
 }
