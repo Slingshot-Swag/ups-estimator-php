@@ -4,11 +4,15 @@ namespace Jamiehoward\UpsEstimator\Helpers;
 
 class JSONCleaner
 {
+    /**
+     * Returns a cleaned JSON string.
+     *
+     * @param string $json
+     * @return string
+     */
     public static function toJson(string $string)
     {
         $cleanedString = self::cleanString($string);
-
-        // var_dump($cleanedString);exit;
 
         $json = json_decode($cleanedString);
 
@@ -19,6 +23,12 @@ class JSONCleaner
         return json_encode($json);
     }
 
+    /**
+     * Returns a cleaned string.
+     *
+     * @param string $string
+     * @return string
+     */
     public static function cleanString(string $string)
     {
         $string = self::stripSlashes($string);
@@ -28,6 +38,12 @@ class JSONCleaner
         return $string;
     }
 
+    /**
+     * Returns a string without unnecessary quotes.
+     *
+     * @param string $string
+     * @return string
+     */
     public static function stripQuotes(string $string)
     {
         $string = str_replace('"[', '[', $string);
@@ -38,6 +54,12 @@ class JSONCleaner
         return $string;
     }
 
+    /**
+     * Returns a string without unnecessary whitespace.
+     *
+     * @param string $string
+     * @return string
+     */
     public static function stripWhitespace(string $string)
     {
         $patterns = ["\n", "\r", "\t", "\0", "\x0B", "  ", "   "];
@@ -49,6 +71,12 @@ class JSONCleaner
         return $string;
     }
 
+    /**
+     * Returns a string without slashes.
+     *
+     * @param string $string
+     * @return string
+     */
     public static function stripSlashes(string $string)
     {
         $slashesPresent = true;

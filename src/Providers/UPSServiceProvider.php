@@ -48,11 +48,6 @@ class UPSServiceProvider
         return $this->driver;
     }
 
-    public function get($headers = [])
-    {
-
-    }
-
     /**
      * Make a request to the UPS service.
      * 

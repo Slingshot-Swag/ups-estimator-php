@@ -22,6 +22,12 @@ class CountryResponse
         }
     }
 
+    /**
+     * Set the selected country data from the response.
+     * 
+     * @param string $selectedCountry The selected country from the response.
+     * @return CountryResponse
+     */
     public function setFromJSON($json)
     {
         $json = json_decode(JSONCleaner::toJson($json),true);
@@ -36,6 +42,11 @@ class CountryResponse
         $this->setCurrencyCode($json['currencyCode']);
     }
 
+    /**
+     * Set the selected country.
+     * 
+     * @return string The selected country.
+     */
     public function setSelectedCountry($selectedCountry)
     {
         $this->selectedCountry = $selectedCountry;
@@ -43,11 +54,21 @@ class CountryResponse
         return $this;
     }
 
+    /**
+     * Retrieve the selected country.
+     * 
+     * @return string The selected country.
+     */
     public function getSelectedCountry()
     {
         return $this->selectedCountry;
     }
 
+    /**
+     * Set the locale.
+     * 
+     * @return string The locale.
+     */
     public function setLocale($locale)
     {
         $this->locale = $locale;
@@ -55,11 +76,21 @@ class CountryResponse
         return $this;
     }
 
+    /**
+     * Retrieve the locale.
+     * 
+     * @return string The locale.
+     */
     public function getLocale()
     {
         return $this->locale;
     }
 
+    /**
+     * Set the address label.
+     * 
+     * @return string The address label.
+     */
     public function setAddressLabel($addressLabel)
     {
         $this->addressLabel = $addressLabel;
@@ -67,11 +98,21 @@ class CountryResponse
         return $this;
     }
 
+    /**
+     * Retrieve the address label.
+     * 
+     * @return string The address label.
+     */
     public function getAddressLabel()
     {
         return $this->addressLabel;
     }
 
+    /**
+     * Set the address layout and cast it to an array.
+     * 
+     * @return array The address layout.
+     */
     public function setAddressLayout($addressLayout)
     {
         switch (gettype($addressLayout)) {
@@ -90,11 +131,21 @@ class CountryResponse
         return $this;
     }
 
+    /**
+     * Retrieve the address layout.
+     * 
+     * @return array The address layout.
+     */
     public function getAddressLayout()
     {
         return $this->addressLayout;
     }
 
+    /**
+     * Set the state list and cast it to an array.
+     * 
+     * @return array The state list.
+     */
     public function setStateList($stateList)
     {
         switch (gettype($stateList)) {
@@ -113,11 +164,21 @@ class CountryResponse
         return $this;
     }
 
+    /**
+     * Retrieve the state list.
+     * 
+     * @return array The state list.
+     */
     public function getStateList()
     {
         return $this->stateList;
     }
 
+    /**
+     * Set the prefix. E.g. a1.
+     * 
+     * @return string The prefix.
+     */
     public function setPrefix($prefix)
     {
         $this->prefix = $prefix;
@@ -125,11 +186,21 @@ class CountryResponse
         return $this;
     }
 
+    /**
+     * Retrieve the prefix.
+     * 
+     * @return string The prefix.
+     */
     public function getPrefix()
     {
         return $this->prefix;
     }
 
+    /**
+     * Set the app id.
+     * 
+     * @return string The app id.
+     */
     public function setAppId($appId)
     {
         $this->appId = $appId;
@@ -137,11 +208,21 @@ class CountryResponse
         return $this;
     }
 
+    /**
+     * Retrieve the app id.
+     * 
+     * @return string The app id.
+     */
     public function getAppId()
     {
         return $this->appId;
     }
 
+    /**
+     * Set the currency code.
+     * 
+     * @return string The currency code. E.g. USD.
+     */
     public function setCurrencyCode($currencyCode)
     {
         $this->currencyCode = $currencyCode;
@@ -149,6 +230,11 @@ class CountryResponse
         return $this;
     }
 
+    /**
+     * Retrieve the currency code.
+     * 
+     * @return string The currency code.
+     */
     public function getCurrencyCode()
     {
         return $this->currencyCode;

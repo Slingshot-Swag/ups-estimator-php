@@ -9,7 +9,7 @@ class CountryRequest
     protected $locale;
     protected $provider;
     protected $countryCode;
-
+    
     const DEFAULT_LOCALE = 'en_US';
 
     public function __construct($countryCode = null)
