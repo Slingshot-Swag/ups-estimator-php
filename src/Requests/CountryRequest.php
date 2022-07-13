@@ -38,6 +38,10 @@ class CountryRequest
      */
     public function getProvider()
     {
+        if (!$this->provider) {
+            $this->setProvider(new UPSServiceProvider);
+        }
+
         return $this->provider;
     }
 
@@ -94,11 +98,13 @@ class CountryRequest
      */
     public function get()
     {
-        return $this->getProvider()->makeRequest('GET', [
-            'Accept-Language' => $this->getLocale()
-        ], [
+        $body = [
             'locale' => $this->getLocale(),
             'selectedCountry' => $this->getCountryCode()
-        ]);
+        ];
+
+        return $this->getProvider()->makeRequest('POST', [
+            'Content-type:application/json',
+        ], json_encode($body));
     }
 }

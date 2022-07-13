@@ -58,12 +58,12 @@ class UPSServiceProvider
      */
     public function makeRequest(string $method, $headers = [], $body = [])
     {
-        $this->driver->setMethod($method);
-        $this->driver->setHeaders($headers);
-        $this->driver->setBody($body);
-        $this->driver->setUrl(self::BASE_URL);
+        $this->getDriver()->setMethod($method);
+        $this->getDriver()->setHeaders($headers);
+        $this->getDriver()->setBody($body);
+        $this->getDriver()->setUrl(self::BASE_URL);
 
-        $response = new CountryResponse($this->driver->request());
+        $response = new CountryResponse($this->getDriver()->request());
 
         return $response;
     }

@@ -111,9 +111,8 @@ class CurlDriver implements Driver
 
     public function request()
     {
-        $curl = curl_init();
-        
-        curl_setopt($curl, CURLOPT_URL, $this->getUrl());
+        $curl = curl_init($this->getUrl());
+
         curl_setopt($curl, CURLOPT_HTTPHEADER, $this->getHeaders());
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $this->getMethod());
         curl_setopt($curl, CURLOPT_POSTFIELDS, $this->getBody());

@@ -29,6 +29,12 @@ final class CountryRequestTest extends TestCase
         $countryRequest->setProvider(new \stdClass);
     }
 
+    public function test_ups_service_provider_is_the_default_provider()
+    {
+        $countryRequest = new CountryRequest;
+        $this->assertInstanceOf(UPSServiceProvider::class, $countryRequest->getProvider());
+    }
+
     public function test_can_set_and_retrieve_locale()
     {
         $countryRequest = new CountryRequest;
@@ -53,5 +59,17 @@ final class CountryRequestTest extends TestCase
     {
         $countryRequest = new CountryRequest('US');
         $this->assertEquals('US', $countryRequest->getCountryCode());
+    }
+
+    public function test_can_make_request()
+    {
+        $countryRequest = new CountryRequest;
+        $countryRequest->setCountryCode('US');
+        
+        // Mock the response from the provider
+        $response = $this->createMock('\Jamiehoward\UpsEstimator\Responses\CountryResponse');
+        $response->method('getStateList')->willReturn([]);
+
+        $this->assertInstanceOf('\Jamiehoward\UpsEstimator\Responses\CountryResponse', $response);
     }
 }
