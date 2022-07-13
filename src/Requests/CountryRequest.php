@@ -86,4 +86,19 @@ class CountryRequest
     {
         return $this->countryCode;
     }
+
+    /**
+     * Make a request to the UPS service.
+     * 
+     * @return CountryResponse The response from the request.
+     */
+    public function get()
+    {
+        return $this->getProvider()->makeRequest('GET', [
+            'Accept-Language' => $this->getLocale()
+        ], [
+            'locale' => $this->getLocale(),
+            'selectedCountry' => $this->getCountryCode()
+        ]);
+    }
 }
